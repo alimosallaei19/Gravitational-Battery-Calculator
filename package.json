@@ -24,11 +24,7 @@
   },
   "type": "module",
   "dependencies": {
-    "dayjs": "^1.10.7",
     "dotenv": "^16.0.0",
-    "firebase": "^9.6.6",
-    "mongodb": "^4.3.1",
-    "promise": "^8.1.0",
-    "svelte-local-storage-store": "^0.2.6"
+    "function-plot": "^1.22.8"
   }
 }
