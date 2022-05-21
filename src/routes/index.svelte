@@ -6,7 +6,7 @@
 	let mass_1 = null,
 		mass_2 = null;
 	let drop_height = null;
-	let axel_radius = null;
+	let axle_radius = null;
 	let gravity = 9.8;
 	let N_generator = null;
 	let B = null;
@@ -20,7 +20,7 @@
 			mass_1 = data.mass_1;
 			mass_2 = data.mass_2;
 			drop_height = data.drop_height;
-			axel_radius = data.axel_radius;
+			axle_radius = data.axle_radius;
 			N_generator = data.N_generator;
 			B = data.B;
 		}
@@ -31,7 +31,7 @@
 	let acceleration = 0;
 	let drop_time = 0;
 	let angular_displacement = 0;
-	let axel_area = 0;
+	let axle_area = 0;
 	let emf = 0;
 
 	let calculate = () => {
@@ -40,7 +40,7 @@
 		let t_mass_1 = parseFloat(mass_1);
 		let t_mass_2 = parseFloat(mass_2);
 		let t_drop_height = parseFloat(drop_height);
-		let t_axel_radius = parseFloat(axel_radius);
+		let t_axle_radius = parseFloat(axle_radius);
 		let t_N_generator = parseFloat(N_generator);
 		let t_B = parseFloat(B);
 
@@ -51,7 +51,7 @@
 			mass_1,
 			mass_2,
 			drop_height,
-			axel_radius,
+			axle_radius,
 			N_generator,
 			B
 		};
@@ -64,9 +64,9 @@
 		drop_time = Math.sqrt((2 * t_drop_height) / acceleration);
 		angular_displacement =
 			((3 * t_mass_1) / (t_disk_mass * t_disk_radius)) * acceleration * Math.pow(drop_time, 2);
-		axel_area = Math.PI * Math.pow(t_axel_radius, 2);
+		axle_area = Math.PI * Math.pow(t_axle_radius, 2);
 		emf =
-			-1 * t_N_generator * ((axel_area * t_B * (Math.cos(angular_displacement) - 1)) / drop_time);
+			-1 * t_N_generator * ((axle_area * t_B * (Math.cos(angular_displacement) - 1)) / drop_time);
 		disk_mass = t_mass_1 + t_mass_2;
 	};
 
@@ -75,7 +75,7 @@
 	// $: mass_1 = parseFloat(mass_1) || '';
 	// $: mass_2 = parseFloat(mass_2) || '';
 	// $: drop_height = parseFloat(drop_height) || '';
-	// $: axel_radius = parseFloat(axel_radius) || '';
+	// $: axle_radius = parseFloat(axle_radius) || '';
 	// $: N_generator = parseFloat(N_generator) || '';
 	// $: B = parseFloat(B) || '';
 </script>
@@ -97,8 +97,8 @@
 		<input bind:value={mass_2} on:keyup={calculate} placeholder="Mass 2" />
 		<p class="text-xl font-bold mt-2 text-right">Drop Height (m)</p>
 		<input bind:value={drop_height} on:keyup={calculate} placeholder="Drop Height" />
-		<p class="text-xl font-bold mt-2 text-right">Axel Radius (m)</p>
-		<input bind:value={axel_radius} on:keyup={calculate} placeholder="Axel Radius" />
+		<p class="text-xl font-bold mt-2 text-right">axle Radius (m)</p>
+		<input bind:value={axle_radius} on:keyup={calculate} placeholder="axle Radius" />
 		<p class="text-xl font-bold mt-2 text-right">Generator Turns</p>
 		<input bind:value={N_generator} on:keyup={calculate} placeholder="N Generator" />
 		<p class="text-xl font-bold mt-2 text-right">Magnetic Field in Generator (T)</p>
@@ -125,8 +125,8 @@
 			<span class="text-xl mt-2">rad</span>
 		</div>
 		<div class="flex gap-x-4">
-			<b class="text-xl mt-2">Axel Area: </b>
-			<input bind:value={axel_area} readonly />
+			<b class="text-xl mt-2">axle Area: </b>
+			<input bind:value={axle_area} readonly />
 			<span class="text-xl mt-2">m^2</span>
 		</div>
 		<div class="flex gap-x-4">
