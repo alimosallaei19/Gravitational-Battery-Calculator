@@ -35,7 +35,7 @@
 	let emf = 0;
 
 	let calculate = () => {
-		let t_disk_mass = parseFloat(disk_mass).toFixed(2);
+		let t_disk_mass = parseFloat(disk_mass);
 		let t_disk_radius = parseFloat(disk_radius);
 		let t_mass_1 = parseFloat(mass_1);
 		let t_mass_2 = parseFloat(mass_2);
@@ -60,7 +60,7 @@
 			localStorage.setItem('values', JSON.stringify(data));
 		}
 
-		acceleration = (Math.abs(t_mass_2 - t_mass_1) * gravity) / (t_mass_1 + t_mass_2);
+		acceleration = (Math.abs(t_mass_2 - t_mass_1) * gravity) / (t_mass_1 + t_mass_2 + (0.5*t_disk_mass));
 		drop_time = Math.sqrt((2 * t_drop_height) / acceleration);
 		angular_displacement =
 			((3 * t_mass_1) / (t_disk_mass * t_disk_radius)) * acceleration * Math.pow(drop_time, 2);
@@ -88,7 +88,7 @@
 	<h1>Enter Values</h1>
 	<div class="grid grid-cols-2 gap-x-3">
 		<p class="text-xl font-bold mt-2 text-right">Disk Mass (kg)</p>
-		<input bind:value={disk_mass} on:keyup={calculate} placeholder="Disk Mass" readonly />
+		<input bind:value={disk_mass} on:keyup={calculate} placeholder="Disk Mass" />
 		<p class="text-xl font-bold mt-2 text-right">Disk Radius (m)</p>
 		<input bind:value={disk_radius} on:keyup={calculate} placeholder="Disk Radius" />
 		<p class="text-xl font-bold mt-2 text-right">Mass 1 (kg)</p>
